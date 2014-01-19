@@ -1,0 +1,178 @@
+00001|nox|INFO:Starting nox_core (/home/openflow/nox/build/src/.libs/lt-nox_core)
+00002|pyrt|DBG:Loading a component description file 'nox/coreapps/hub/meta.json'.
+00003|pyrt|DBG:Loading a component description file 'nox/coreapps/messenger/meta.json'.
+00004|pyrt|DBG:Loading a component description file 'nox/coreapps/coretests/meta.json'.
+00005|pyrt|DBG:Loading a component description file 'nox/coreapps/tutorial/meta.json'.
+00006|pyrt|DBG:Loading a component description file 'nox/coreapps/simple_c_app/meta.json'.
+00007|pyrt|DBG:Loading a component description file 'nox/coreapps/examples/t/meta.json'.
+00008|pyrt|DBG:Loading a component description file 'nox/coreapps/examples/meta.json'.
+00009|pyrt|DBG:Loading a component description file 'nox/coreapps/switch/meta.json'.
+00010|pyrt|DBG:Loading a component description file 'nox/coreapps/snmp/meta.json'.
+00011|pyrt|DBG:Loading a component description file 'nox/coreapps/testharness/meta.json'.
+00012|pyrt|DBG:Loading a component description file 'nox/coreapps/simple_c_py_app/meta.json'.
+00013|pyrt|DBG:Loading a component description file 'nox/coreapps/pyrt/meta.json'.
+00014|pyrt|DBG:Loading a component description file 'nox/netapps/switch_management/meta.json'.
+00015|pyrt|DBG:Loading a component description file 'nox/netapps/tests/meta.json'.
+00016|pyrt|DBG:Loading a component description file 'nox/netapps/bindings_storage/t/meta.json'.
+00017|pyrt|DBG:Loading a component description file 'nox/netapps/bindings_storage/meta.json'.
+00018|pyrt|DBG:Loading a component description file 'nox/netapps/switchstats/meta.json'.
+00019|pyrt|DBG:Loading a component description file 'nox/netapps/authenticator/meta.json'.
+00020|pyrt|DBG:Loading a component description file 'nox/netapps/routing/meta.json'.
+00021|pyrt|DBG:Loading a component description file 'nox/netapps/tablog/meta.json'.
+00022|pyrt|DBG:Loading a component description file 'nox/netapps/route/meta.json'.
+00023|pyrt|DBG:Loading a component description file 'nox/netapps/hoststate/meta.json'.
+00024|pyrt|DBG:Loading a component description file 'nox/netapps/data/meta.json'.
+00025|pyrt|DBG:Loading a component description file 'nox/netapps/flow_fetcher/meta.json'.
+00026|pyrt|DBG:Loading a component description file 'nox/netapps/topology/meta.json'.
+00027|pyrt|DBG:Loading a component description file 'nox/netapps/storage/t/meta.json'.
+00028|pyrt|DBG:Loading a component description file 'nox/netapps/storage/meta.json'.
+00029|pyrt|DBG:Loading a component description file 'nox/netapps/discovery/meta.json'.
+00030|pyrt|DBG:Loading a component description file 'nox/netapps/lavi/meta.json'.
+00031|pyrt|DBG:Loading a component description file 'nox/netapps/user_event_log/meta.json'.
+00032|pyrt|DBG:Loading a component description file 'nox/netapps/networkstate/meta.json'.
+00033|pyrt|DBG:Loading a component description file 'nox/webapps/webservice/meta.json'.
+00034|pyrt|DBG:Loading a component description file 'nox/webapps/miscws/meta.json'.
+00035|pyrt|DBG:Loading a component description file 'nox/webapps/webserver/meta.json'.
+00036|pycomponent|DBG:Importing Python module nox.coreapps.tutorial.pytutorial
+00037|nox|DBG:Application installation report:
+00038|nox|DBG:built-in event dispatcher:
+	Current state: INSTALLED
+	Required state: INSTALLED
+	Dependencies: 
+
+00039|nox|DBG:pytutorial:
+	Current state: INSTALLED
+	Required state: INSTALLED
+	Dependencies: 'python' OK, 'python' OK
+
+00040|nox|DBG:built-in DSO deployer:
+	Current state: INSTALLED
+	Required state: INSTALLED
+	Dependencies: 
+
+00041|nox|DBG:python:
+	Current state: INSTALLED
+	Required state: INSTALLED
+	Dependencies: 
+
+00042|openflow|DBG:Passive tcp interface bound to port 6633
+00043|nox|INFO:nox bootstrap complete
+00044|openflow|DBG:Passive tcp interface received connection 
+00045|openflow|DBG:Passive tcp interface received connection 
+00046|openflow|DBG:stream: negotiated OpenFlow version 0x01 (we support versions 0x01 to 0x01 inclusive, peer no later than version 0x01)
+00047|nox|DBG:Success sending in 'sending switch config'
+00048|openflow|DBG:stream: negotiated OpenFlow version 0x01 (we support versions 0x01 to 0x01 inclusive, peer no later than version 0x01)
+00049|nox|DBG:Success sending in 'sending switch config'
+00050|nox|DBG:Success sending in 'receiving features reply'
+00051|nox|DBG:Success sending in 'receiving features reply'
+00052|openflow|DBG:Passive tcp interface received connection 
+00053|nox|DBG:Success receiving in 'receiving features reply'
+00054|nox|DBG:Success receiving in 'receiving features reply'
+00055|openflow|DBG:stream: negotiated OpenFlow version 0x01 (we support versions 0x01 to 0x01 inclusive, peer no later than version 0x01)
+00056|nox|DBG:Success sending in 'sending switch config'
+00057|nox|DBG:Success sending in 'receiving ofmp capability reply'
+00058|nox|DBG:Success sending in 'receiving ofmp capability reply'
+00059|nox|DBG:Success sending in 'receiving features reply'
+00060|nox|DBG:Success receiving in 'receiving ofmp capability reply'
+00061|nox|DBG:Datapath 000000000002 sent error in response to capability reply, assuming no management support
+00062|nox|DBG:Success receiving in 'receiving ofmp capability reply'
+00063|nox|DBG:Datapath 000000000003 sent error in response to capability reply, assuming no management support
+00064|nox|DBG:Success receiving in 'receiving features reply'
+00065|nox|DBG:No switch auth module registered, auto-approving switch
+00066|nox|DBG:Registering switch with DPID = 2
+00067|nox|DBG:No switch auth module registered, auto-approving switch
+00068|nox|DBG:Registering switch with DPID = 3
+00069|nox|DBG:Success sending in 'receiving ofmp capability reply'
+00070|nox|DBG:Success receiving in 'receiving ofmp capability reply'
+00071|nox|DBG:Datapath 000000000001 sent error in response to capability reply, assuming no management support
+00072|nox|DBG:No switch auth module registered, auto-approving switch
+00073|nox|DBG:Registering switch with DPID = 1
+00074|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00075|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 4 go to port 2 of switch 1
+00076|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00077|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 5 go to port 1 of switch 1
+00078|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00079|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 4 go to port 3 of switch 1
+00080|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00081|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 4 go to port 3 of switch 2
+00082|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00083|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 6 go to port 1 of switch 2
+00084|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00085|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 6 go to port 1 of switch 1
+00086|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00087|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 4 go to port 4 of switch 1
+00088|openflow-event|DBG:received packet-in event from 000000000003 (len:98)
+00089|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 4 go to port 1 of switch 3
+00090|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00091|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 4 go to port 4 of switch 2
+00092|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00093|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 7 go to port 1 of switch 2
+00094|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00095|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 7 go to port 1 of switch 1
+00096|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00097|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 5 go to port 1 of switch 1
+00098|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00099|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 4 go to port 2 of switch 1
+00100|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00101|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 5 go to port 3 of switch 1
+00102|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00103|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 5 go to port 3 of switch 2
+00104|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00105|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 6 go to port 1 of switch 2
+00106|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00107|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 6 go to port 2 of switch 1
+00108|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00109|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 5 go to port 4 of switch 1
+00110|openflow-event|DBG:received packet-in event from 000000000003 (len:98)
+00111|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 5 go to port 1 of switch 3
+00112|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00113|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 5 go to port 4 of switch 2
+00114|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00115|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 7 go to port 1 of switch 2
+00116|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00117|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 7 go to port 2 of switch 1
+00118|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00119|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 6 go to port 1 of switch 2
+00120|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00121|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 6 go to port 1 of switch 1
+00122|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00123|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 4 go to port 3 of switch 1
+00124|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00125|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 4 go to port 3 of switch 2
+00126|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00127|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 6 go to port 1 of switch 2
+00128|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00129|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 6 go to port 2 of switch 1
+00130|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00131|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 5 go to port 3 of switch 1
+00132|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00133|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 5 go to port 3 of switch 2
+00134|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00135|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 6 go to port 4 of switch 2
+00136|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00137|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 7 go to port 3 of switch 2
+00138|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00139|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 7 go to port 1 of switch 2
+00140|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00141|nox.coreapps.tutorial.pytutorial|INFO: packet to host 4 from host 7 go to port 1 of switch 1
+00142|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00143|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 4 go to port 4 of switch 1
+00144|openflow-event|DBG:received packet-in event from 000000000003 (len:98)
+00145|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 4 go to port 1 of switch 3
+00146|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00147|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 4 go to port 4 of switch 2
+00148|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00149|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 7 go to port 1 of switch 2
+00150|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00151|nox.coreapps.tutorial.pytutorial|INFO: packet to host 5 from host 7 go to port 2 of switch 1
+00152|openflow-event|DBG:received packet-in event from 000000000001 (len:98)
+00153|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 5 go to port 4 of switch 1
+00154|openflow-event|DBG:received packet-in event from 000000000003 (len:98)
+00155|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 5 go to port 1 of switch 3
+00156|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00157|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 5 go to port 4 of switch 2
+00158|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00159|nox.coreapps.tutorial.pytutorial|INFO: packet to host 6 from host 7 go to port 3 of switch 2
+00160|openflow-event|DBG:received packet-in event from 000000000002 (len:98)
+00161|nox.coreapps.tutorial.pytutorial|INFO: packet to host 7 from host 6 go to port 4 of switch 2
+
