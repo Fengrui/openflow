@@ -1,0 +1,59 @@
+In flow trading business, sometimes, traders could have some unwanted positions in the book. It is important to unwind those positions as soon as possible due to potential high risk and funding or balance sheet cost. 
+
+In this situation, sales team would help unwind the positions by finding potential clients. However, big banks have a large number of clients and it could be a time-consuming process for the sales to find clients willing to trade. 
+
+Similar problems also exist in other domains, for example, Netflix has over 50,000 different programs and the 20% most popular programs account for 90% of watch time. This is the so-called long-tail problem and what Netflix did was implementing a recommender system to find interesting programs in the long-tail for their customers. Such recommender systems indeed brought huge benefits to Netflix, imagine that Netflix was willing to pay 1 million to find solutions which can improve their models by only 10%.
+
+So the question is: could recommender systems be used in corporate bonds sales/trading. The answer is yes, because we face exactly the same long-tail problem in this business. For example, this year between May and August, the most popular bond was traded 700 times, but more than 80% of the bonds were traded less than 50 times. Therefore, in this project, we are trying to design and implement an effective recommender system which can be used by the sales team to help unwind some of their future positions. 
+
+In order to build a recommender system, what models could we use and how the data can be fed into the system? 
+
+Let’s first take a look at what data we have. For corporate bond trading at the banks, when a client is interested in buying or selling a bond, a request for quote (RFQ) data will be recorded to show what client is interested in what kind of bond. Together with the bond static data, we could have a full picture of what type of bond the client wants.
+
+Based on this, we designed two recsys models. The content-based filtering model builds the profiles of the clients using the features of the bonds the clients wanted and recommends the bond which matches the clients’ profiles. While the collaborative filtering model only looks at the client-bond interactions data such as volume and number of inquiries and make recommendations based on that. Neighborhood based model and latent factor model both belong to collaborative filtering. We will go into the details later. 
+
+This is the list of notations we use to present these models. Among these notations, one thing to highlight is that we use the term client/user interchangeably the same for bond/item. 
+
+To build content-based filtering, we could consider the following 17 features of the bond. Features such as maturity, yield, coupon, are numerical and there are 5 of them. There are also 12 categorical data such as product types, industry, coupon type. 
+
+In principle, we could build the client’s profile using these features and then get the client-bond similarity by computing the inner product of the client profile and the bond features. However, different clients prefer different features, therefore, the per client weights on all bond features must be found, which is the w here. By regressing the weighted inner product and the indicators of client-bond interaction, which is the p here and also take the overfitting problem into consideration, this ridge regression model can be built. The c indicates the confidence we have for the indicator data, for example, if the client wants to trade a larger volume of one bond than the other bonds, we should be more confident that the client is most interested in that bond, and thus a large value for the c here. 
+
+This ridge regression model has an analytic solution if we differentiate it by w and the recommendation can be made by ranking the weighted inner product among all client and bond pairs. 
+
+The neighborhood based collaborative filtering method assumes that two clients are similar if they trade similar group of bonds or two bonds are similar if they are traded by similar group of clients. For item-oriented method, it recommends to a client a bond which is similar to the bonds previously traded by that client. The similarity is computed using the cosine similarity of the interaction indicators. Then the model can recommend to a client the bond which has the highest similarity weighted preference score. 
+
+Latent factor model finds the latent factors for clients and bonds by factorizing the client-bond interaction matrix. If a client has latent factors to a bond’s latent factors, then it is more likely that the client wants that bond. We are matching the pairwise inner product of clients’ latent factor matrix and bonds’ latent factor matrix. The indicator and confidence levels are similar to the ones used in ridge regression model. Usually such problem can be solved using alternating-least-squares, which computes the gradient descent iteratively over clients latent factors and bonds latent factors. 
+
+We implemented all these methods using Python and backtest their performance and optimized the computational complexity of the model. 
+
+In the backtesting, we used the RFQ and bond static data between July 2016 and August 2017. We use 80% of data to calibrate the model and 20% to test the performance, which is kind of the popular way to divide the datasets for testing machine learning algorithms. 
+
+The performance can be evaluated using two different metrics, one is called AUC of ROC curve. It computes the area under the ROC curve which is created by plotting the true positive and false positive rates for the prediction results. AUC score 1 means its a perfect recommendation system and 0.5 indicates random prediction. Percentile rank is another metric one could use to evaluate such recommender system, it indicates the average position of the correct recommendations in the ranked recommendation list. a value close to 0 means a perfect recommendation. In practice, percentile rank is very close to 1 - AUC score. 
+
+In most of the machine learning problems, one need to optimize some hyperparameters before performing testing. For example, for latent factor model, the alpha for computing confidence level, lambda for regularization and K for the number of latent factors are hyperparameters. We use cross-valiation to optimize the hyperparameters, which further divides the training data into training and validation data. We can use grid search to find the hyperparameters which can give the best validation results, and use those parameters for testing. 
+
+As for latent factor model, the grid search for hyperparameters is a 3D search and we find the combination of the hyperparameters which achieve the highest AUC score in the validation. 
+
+This shows the grid search results for the hyperparameters in the models we implemented. 
+
+This figure shows the prediction accuracy for all the models we implemented, the cat and num which means categorical and numerical model are heuristic content based filtering models, which are the naive implementation to be used as baseline. The content ridge regression model tends to improve the heuristic features through the optimization. All collaborative filtering models perform better than the content-based filtering, especially the latent factor model, which achieves an AUC score of 0.87.
+
+In addition to the accuracy, we are also interested in understanding what data in the past we should use to train the model. Because clients need different bonds due to change of risk, their investment requirements and political events. We would at least imagine that older data are less relevant for predicting current preference and maybe a fixed time window for training data should be used. So we test the performance of the latent factor model for predicting the current month clients’ preference by training the data in the past. 
+
+In this figure, for each of this data points, from left to right, we add one month more data to the training set. And the performance drops from December 2016. And if we only use one month data in the past to make predictions. It seems that the April 2017, and September and December last year are less relevant to the current month. Such effect can be well explained. For example, April 2017 the french election had impact on bond trading. In December, clients usually rebalance their portfolio and clear balance sheet. Large bond new issuance took place in last September. All these factors would impact the relevance of the past data to the current period. The message here is we should use at least a couple of month data for training to ensure that we have enough data, but we should also not use data far from current, especially when there is some events happening. 
+
+In addition to accuracy, the comptation time is also evaluated. We could see that the latent factor model, due to the heavy computational cost for the alternating-least-squares, tends to run very slow, almost 30 minutes to train one year data, which is not desirable because imagine such computational time for hyperparameters optimization, a 3D grid search would weeks to finish. 
+
+If we take a look at the ALS method, per iteration, we need to make these three calculations. When K, N, or M are large, the computation would be very slow. 
+
+In this project, we took three different measures to reduce the computational cost. The first one is that we could divide this matrix multiplication into factors, one can be pre-computed for all clients per iteration and the other term has a sparse matrix in the middle, which reduce the computational cost to only the number of nonzero elements in the matrix. 
+
+The second measure we took aims to reduce the computational cost for the matrix inversion. We used conjugate gradient method to approximate the matrix inversion solution using orthogonal vectors. The conjugate gradient method proves to converge very fast for symmetric matrix and it also offers accurate approximation compared to the plain matrix inversion solutions. 
+
+The last measure we took is to implement the model with unmanaged code using this Cython library. Some parallelization also helps since the computation for ALS is fully parallelizable. 
+
+So this figure shows the improvement we could achieve by applying all three measures. We only show the improvement conjugate gradient and Cython could give us. Conjugate gradient improves the speed for Python code by 6 times. and the unmanaged code improves another 15 times. so overall we can compute the results 100 times faster. 
+
+We have implemented all these models, but which one is better. 
+
+We not only implemented all these models, since the project is done for the sales team, so we also implemented a prototype in order to receive some valuable feedback from our customers. These are some screenshots for the prototype and it is a web service currently running in the Algo QA box and you can access it and play with it by using your web browser. 
